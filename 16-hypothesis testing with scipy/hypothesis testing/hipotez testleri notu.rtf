@@ -1,299 +1,178 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2511
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 Monaco;\f2\froman\fcharset0 Times-Roman;
-\f3\fmodern\fcharset0 Courier;\f4\fnil\fcharset0 HelveticaNeue;}
-{\colortbl;\red255\green255\blue255;\red252\green115\blue96;\red10\green12\blue22;\red164\green191\blue255;
-\red23\green23\blue23;\red255\green255\blue255;\red117\green255\blue242;\red129\green131\blue134;\red254\green219\blue112;
-\red0\green0\blue0;\red244\green242\blue249;\red109\green109\blue109;\red56\green56\blue56;}
-{\*\expandedcolortbl;;\cssrgb\c100000\c53725\c45098;\cssrgb\c3922\c5490\c11373;\cssrgb\c70196\c80000\c100000;
-\cssrgb\c11765\c11765\c11765;\cssrgb\c100000\c100000\c100000;\cssrgb\c51373\c100000\c96078;\cssrgb\c57647\c58431\c59608;\cssrgb\c100000\c87843\c51373;
-\cssrgb\c0\c0\c0;\cssrgb\c96471\c96078\c98039;\cssrgb\c50196\c50196\c50196;\cssrgb\c28235\c28235\c28235;}
-\paperw11900\paperh16840\margl1440\margr1440\vieww28600\viewh15100\viewkind0
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+Hipotez Testleri
 
-\f0\fs24 \cf0 Hipotez Testleri\
-\
-Numerik hipotez testleri \
-\
-\'971 sample t-test\
-\'97 2 sample t-test\
-\'97 ANOVA test\
-\'97 Turkey\'92s range test\
-\
-Kategorik hipotez testleri\
-\
-\'97 binomial test\
-\'97 chi kare testi\
-\
-\ul Numerik Hipotez testleri\ulnone \
-\
-\
-1) 1 sample t-test:\
-Sample ortalamasi population beklenen ortalamas\uc0\u305 na e\u351 it mi diye test ediyoruz.\
-A ilac\uc0\u305 n\u305 n kullananlar\u305 n yasam ortalamasi 78, population beklenen ortalamasi 75, iki ortalama aras\u305 nda significant bir fark var mi yok mu?\
-\
-ho: sample ortalamasi= 
-\f1\fs28\fsmilli14080 \cf2 \cb3 \expnd0\expndtw0\kerning0
-expected_mean
-\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
-h1: esit degildir (significant fark var)\
-\
-Kutuphane: 
-\f2\fs28\fsmilli14080 \cf4 \cb5 \expnd0\expndtw0\kerning0
-from\cf6  \cf2 scipy\cf6 .\cf7 stats\cf6  \cf4 import\cf6  \cf2 ttest_1samp\cf6 \cb1 \
+Numerik hipotez testleri 
 
-\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 Test:  
-\f2\fs28\fsmilli14080 \cf8 \cb5 \expnd0\expndtw0\kerning0
-tstat, pval = ttest_1samp(sample datasi, 
-\f1 \cf2 \cb3 expected_mean
-\f2 \cf8 \cb5 )\cf6 \cb1 \
+—1 sample t-test
+— 2 sample t-test
+— ANOVA test
+— Turkey’s range test
 
-\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
-Yorum: p value 0.05 den kucukse ho reddedilir yani iki ortalama istatistiki olarak e\uc0\u351 it degil, yani significant bir fark var.\
-\
-2) 2 sample t-test:\
-Elimizde 2 ortalama var bunlar istatistiki olarak e\uc0\u351 it mi degil mi diye bak\u305 yoruz.\
-A ilac\uc0\u305 n\u305 n kullananlar\u305 n yasam ortalamasi 78, B ilac\u305 n\u305  kullananlarinki 80, iki ortalama aras\u305 nda significant bir fark var mi yok mu?\
-\
-ho: sample_1 ortalamasi= sample_2 ortalamasi\
-h1: esit degildir (significant fark var)\
-\
-\pard\pardeftab720\sl440\partightenfactor0
+Kategorik hipotez testleri
 
-\f2\fs28\fsmilli14080 \cf4 \cb5 \expnd0\expndtw0\kerning0
-kutuphane: from\cf6  \cf2 scipy\cf6 .\cf7 stats\cf6  \cf4 import\cf6  \cf2 ttest_ind\
-Test: tstatstic\cf6 , \cf2 pval\cf6  = \cf2 ttest_ind\cf6 (\cf2 sample1\cf6 , \cf2 sample2\cf6 )	\
-\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+— binomial test
+— chi kare testi
 
-\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 Yorum: p value 0.05 den kucukse ho reddedilir yani iki ortalama istatistiki olarak e\uc0\u351 it degil, yani significant bir fark var.\
-\
-3) ANOVA\
-\
-\pard\pardeftab720\sl440\partightenfactor0
+Numerik Hipotez testleri
 
-\f2\fs28\fsmilli14080 \cf6 \cb5 \expnd0\expndtw0\kerning0
-ikiden fazla verinin mean ayni mi degil mi test etmek icin kullan\uc0\u305 l\u305 r\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 A ilac\uc0\u305 n\u305 n kullananlar\u305 n yasam ortalamasi 78, B ilac\u305 n\u305  kullananlarinki 80, C ilac\u305 n\u305  kullananlarinki 85, uc ortalama aras\u305 nda significant bir fark var mi yok mu?\
-\
-ho: sample_1 ortalamasi= sample_2 ortalamasi=sample_3 ortalamasi\
-h1: esit degildir (significant fark var)\
-\
-\pard\pardeftab720\sl440\partightenfactor0
+1) 1 sample t-test:
+Sample ortalamasi population beklenen ortalamasına eşit mi diye test ediyoruz.
+A ilacının kullananların yasam ortalamasi 78, population beklenen ortalamasi 75, iki ortalama arasında significant bir fark var mi yok mu?
 
-\f2\fs28\fsmilli14080 \cf4 \cb5 \expnd0\expndtw0\kerning0
-kutuphane: f\cf4 \cb5 rom\cf6  \cf2 \cb5 scipy\cf6 \cb5 .\cf7 stats\cf6  \cf4 import\cf6  \cf2 \cb5 f_oneway\
-Test: fstat\cf6 \cb5 , \cf2 \cb5 pval\cf6 \cb5  = \cf2 \cb5 f_oneway\cf6 \cb5 (\cf2 \cb5 sample1\cf6 \cb5 , \cf2 \cb5 sample2, sample3\cf6 \cb5 )\cb1 \
-\pard\pardeftab720\sl440\partightenfactor0
-\cf6 \cb5 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+ho: sample ortalamasi= expected_mean
+h1: esit degildir (significant fark var)
 
-\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 Yorum: p value 0.05 den kucukse ho reddedilir yani  ortalamalar istatistiki olarak e\uc0\u351 it degil, yani significant bir fark var. Ancak ANOVA yontemi hangi ortalamalar\u305 n aras\u305 nda fark oldugunu s\'f6ylemez, onun icin Tukey\'92s range test yapmak gerekiyor\
-\
-4) Tukey\'92s range test\
-\
-ANOVA ya gore baktik ve elimizdeki ortalamalar aras\uc0\u305 nda significant fark oldugunu gorduk(ho reddettik) ancak hangi iki veri(ler) aras\u305 nda fark oldugunu g\'f6rmekte icin bu testi kullan\u305 yoruz\
-\
-\pard\pardeftab720\sl440\partightenfactor0
+Kutuphane: from scipy.stats import ttest_1samp
+Test:  tstat, pval = ttest_1samp(sample datasi, expected_mean)
 
-\f2\fs28\fsmilli14080 \cf4 \cb5 \expnd0\expndtw0\kerning0
-kutuphane: \cf4 \cb5 from\cf6  \cf2 \cb5 statsmodels\cf6 \cb5 .\cf7 stats\cf2 \cb5 .\cf7 \cb5 multicomp\cf6  \cf4 import\cf6  \cf2 \cb5 pairwise_tukeyhsd\
-Test: \
-v\cf6 \cb5  = \cf2 \cb5 np\cf6 \cb5 .\cf7 concatenate\cf6 ([\cf2 \cb5 a\cf6 \cb5 , \cf2 \cb5 b\cf6 \cb5 , \cf2 \cb5 c\cf6 \cb5 ])\cb1 \
-\pard\pardeftab720\sl440\partightenfactor0
-\cf2 \cb5 labels\cf6 \cb5  = [\cf9 'a'\cf6 ] * len(\cf2 \cb5 a\cf6 \cb5 ) + [\cf9 'b'\cf6 ] * len(\cf2 \cb5 b\cf6 \cb5 ) + [\cf9 'c'\cf6 ] * len(\cf2 \cb5 c\cf6 \cb5 )\
-\cf2 \cb5 tukey_results\cf6 \cb5  = \cf2 \cb5 pairwise_tukeyhsd\cf6 \cb5 (\cf2 \cb5 v\cf6 \cb5 , \cf2 \cb5 labels\cf6 \cb5 , \cf2 \cb5 0.05\cf6 \cb5 )\cb1 \
-\pard\pardeftab720\sl440\partightenfactor0
-\cf6 \cb5 print(\cf2 \cb5 tukey_results\cf6 \cb5 )\
-\
-\pard\pardeftab720\sl440\partightenfactor0
-\cf9 \cb5 \'97
-\f3\fs24 \cf6 \cb10 Multiple Comparison of Means - Tukey HSD,FWER=0.05\
-\pard\pardeftab720\sl280\partightenfactor0
-\cf6 =============================================\
-group1 group2 meandiff  lower   upper  reject\
----------------------------------------------\
-  a      b     7.2767   3.2266 11.3267  True \
-  a      c     4.0115  -0.0385  8.0616 False \
+Yorum: p value 0.05 den kucukse ho reddedilir yani iki ortalama istatistiki olarak eşit degil, yani significant bir fark var.
+
+2) 2 sample t-test:
+Elimizde 2 ortalama var bunlar istatistiki olarak eşit mi degil mi diye bakıyoruz.
+A ilacının kullananların yasam ortalamasi 78, B ilacını kullananlarinki 80, iki ortalama arasında significant bir fark var mi yok mu?
+
+ho: sample_1 ortalamasi= sample_2 ortalamasi
+h1: esit degildir (significant fark var)
+
+kutuphane: from scipy.stats import ttest_ind
+Test: tstatstic, pval = ttest_ind(sample1, sample2)	
+
+Yorum: p value 0.05 den kucukse ho reddedilir yani iki ortalama istatistiki olarak eşit degil, yani significant bir fark var.
+
+3) ANOVA
+
+ikiden fazla verinin mean ayni mi degil mi test etmek icin kullanılır
+A ilacının kullananların yasam ortalamasi 78, B ilacını kullananlarinki 80, C ilacını kullananlarinki 85, uc ortalama arasında significant bir fark var mi yok mu?
+
+ho: sample_1 ortalamasi= sample_2 ortalamasi=sample_3 ortalamasi
+h1: esit degildir (significant fark var)
+
+kutuphane: from scipy.stats import f_oneway
+Test: fstat, pval = f_oneway(sample1, sample2, sample3)
+
+Yorum: p value 0.05 den kucukse ho reddedilir yani  ortalamalar istatistiki olarak eşit degil, yani significant bir fark var. Ancak ANOVA yontemi hangi ortalamaların arasında fark oldugunu söylemez, onun icin Tukey’s range test yapmak gerekiyor
+
+4) Tukey’s range test
+
+ANOVA ya gore baktik ve elimizdeki ortalamalar arasında significant fark oldugunu gorduk(ho reddettik) ancak hangi iki veri(ler) arasında fark oldugunu görmekte icin bu testi kullanıyoruz
+
+kutuphane: from statsmodels.stats.multicomp import pairwise_tukeyhsd
+Test: 
+v = np.concatenate([a, b, c])
+labels = ['a'] * len(a) + ['b'] * len(b) + ['c'] * len(c)
+tukey_results = pairwise_tukeyhsd(v, labels, 0.05)
+print(tukey_results)
+
+—Multiple Comparison of Means - Tukey HSD,FWER=0.05
+=============================================
+group1 group2 meandiff  lower   upper  reject
+---------------------------------------------
+  a      b     7.2767   3.2266 11.3267  True 
+  a      c     4.0115  -0.0385  8.0616 False 
   b      c    -3.2651  -7.3152  0.7849 False 
-\f2\fs28\fsmilli14080 \cb1 \
-\pard\pardeftab720\sl440\partightenfactor0
-\cf6 \
-\pard\pardeftab720\sl440\partightenfactor0
 
-\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 Yorum: a ve b nin ortalamalar aras\uc0\u305 nda significant fark var\
-\
-Onemli: numerik hipotez testlerini kullanabilmek icin:\
-1) orneklemler normal dagilima sahip olmal\uc0\u305 \
-2) std sapmalar\uc0\u305  birbirine yakin olmal\u305 (art\u305  eksi %10)\
-3) orneklemler birbirinden bagimsiz olmal\uc0\u305  (veriler birbirinden etkilenmemeli)\
-\
-Kategorik hipotez testleri\
-Eger elimizde datalar\uc0\u305 n ortalamalar ve std sapmalar\u305  yoksa datalar\u305 n girdileri kategorikse numerik hipotez testleri ise yaramaz.\
-1) Binomial Test\
-Bir olaydaki gerceklesen olasikilik beklenen olas\uc0\u305 l\u305 kla istatistiki olarak e\u351 it mi degil mi?\
-Bir paray\uc0\u305  1000 defa ettik 525 defa yaz\u305  geldi, gerceklesen olasilik 0.525, beklenen olasilik 0.5, bu iki deger aras\u305 nda significant fark var mi yok mu? Para hileli mi degil mi?\
-\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf0 ho: actual probability= 
-\f1\fs28\fsmilli14080 \cf2 \cb3 \expnd0\expndtw0\kerning0
-expected_probability
-\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \
-h1: esit degildir (significant fark var)\
-\
-Kutuphane: 
-\f2\fs28\fsmilli14080 \cf4 \cb5 \expnd0\expndtw0\kerning0
-from\cf6  \cf2 \cb5 scipy\cf6 \cb5 .\cf7 stats\cf6  \cf4 import\cf6  \cf2 \cb5 binom_test\cf6 \cb1 \
-\
+Yorum: a ve b nin ortalamalar arasında significant fark var
 
-\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 Test:  
-\f1\fs28\fsmilli14080 \cf2 \expnd0\expndtw0\kerning0
-pval\cf6 \cb3  \cb1 =\cb3  \cf2 \cb1 binom_test\cf6 \cb3 (\cf2 \cb1 525\cf6 \cb3 , \cf2 \cb1 n\cf6 =\cf2 1000\cf6 \cb3 , \cf2 \cb1 p\cf6 =\cf2 0.5\cf6 \cb3 )
-\f2 \cb1 \
+Onemli: numerik hipotez testlerini kullanabilmek icin:
+1) orneklemler normal dagilima sahip olmalı
+2) std sapmaları birbirine yakin olmalı(artı eksi %10)
+3) orneklemler birbirinden bagimsiz olmalı (veriler birbirinden etkilenmemeli)
 
-\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
-Yorum: p value 0.05 den kucukse ho reddedilir yani iki olas\uc0\u305 l\u305 k istatistiki olarak e\u351 it degil, yani significant bir fark var.\
-\
-\
-2) chi kare testi\
-\
-Iki ve ikiden fazla kategorik datasetini karsilastirmak icin chi kare testi kullan\uc0\u305 l\u305 r.\
-1.,2. Ve 3. Sinif \'e7ocuklar\uc0\u305 na 2 oyuncaktan hangisini be\u287 endikleri soruluyor. oyuncak tercihi s\u305 n\u305 flara gore de\u287 i\u351 iyor mu? Cevaplara gore asagidaki tablo olu\u351 turuluyor\
-\
-\pard\pardeftab720\sl440\partightenfactor0
+Kategorik hipotez testleri
+Eger elimizde dataların ortalamalar ve std sapmaları yoksa dataların girdileri kategorikse numerik hipotez testleri ise yaramaz.
+1) Binomial Test
+Bir olaydaki gerceklesen olasikilik beklenen olasılıkla istatistiki olarak eşit mi degil mi?
+Bir parayı 1000 defa ettik 525 defa yazı geldi, gerceklesen olasilik 0.525, beklenen olasilik 0.5, bu iki deger arasında significant fark var mi yok mu? Para hileli mi degil mi?
 
-\f2\fs28\fsmilli14080 \cf8 \cb5 \expnd0\expndtw0\kerning0
-# Contingency table\cf6 \cb1 \
-\cf8 \cb5 #        toy-1 |  toy-2\cf6 \cb1 \
-\cf8 \cb5 # ----+------------------+------------\cf6 \cb1 \
-\cf8 \cb5 # 1st gr | 30       |  10\cf6 \cb1 \
-\cf8 \cb5 # 2nd gr | 35       |  5\cf6 \cb1 \
-\cf8 \cb5 # 3rd gr | 28       |  12\cf6 \cb1 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+ho: actual probability= expected_probability
+h1: esit degildir (significant fark var)
 
-\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
-\
-ho: datasetleri aras\uc0\u305 nda significant bir fark yok\
-h1: significant fark var\
-\
-Kutuphane: 
-\f2\fs28\fsmilli14080 \cf4 \cb5 \expnd0\expndtw0\kerning0
-from\cf6  \cf2 \cb5 scipy\cf6 \cb5 .\cf7 stats\cf6  \cf4 import\cf6  \cf2 \cb5 chi2_contingency\cf6 \cb1 \
-\
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+Kutuphane: from scipy.stats import binom_test
 
-\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 Test:  
-\f1\fs28\fsmilli14080 \cf2 \expnd0\expndtw0\kerning0
-\
-\
-\pard\pardeftab720\sl440\partightenfactor0
+Test:  pval = binom_test(525, n=1000, p=0.5)
 
-\f2 \cf2 \cb5 X\cf6 \cb5  = [[\cf2 \cb5 30\cf6 \cb5 , \cf2 \cb5 10\cf6 \cb5 ],\cb1 \
-\pard\pardeftab720\sl440\partightenfactor0
-\cf6 \cb5      [\cf2 \cb5 35\cf6 \cb5 , \cf2 \cb5 5\cf6 \cb5 ],\cb1 \
-\cb5      [\cf2 \cb5 28\cf6 \cb5 , \cf2 \cb5 12\cf6 \cb5 ]]\cb1 \
-\pard\pardeftab720\sl440\partightenfactor0
-\cf2 \cb5 chi2\cf6 \cb5 , \cf2 \cb5 pval\cf6 \cb5 , \cf2 \cb5 dof\cf6 \cb5 , \cf2 \cb5 expected\cf6 \cb5  = \cf2 \cb5 chi2_contingency\cf6 \cb5 (\cf2 \cb5 X\cf6 \cb5 )\cb1 \
-\pard\pardeftab720\sl440\partightenfactor0
-\cf6 \cb5 print \cf2 \cb5 pval\cf6 \cb1 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf6 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+Yorum: p value 0.05 den kucukse ho reddedilir yani iki olasılık istatistiki olarak eşit degil, yani significant bir fark var.
 
-\f0\fs24 \cf0 \kerning1\expnd0\expndtw0 \
-Yorum: p value 0.05 den kucukse ho reddedilir datasetleri aras\uc0\u305 nda significant bir fark var.\
-\
-\
 
-\f2 \cf10 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec10 \
+2) chi kare testi
 
-\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrt\brdrnil \trbrdrl\brdrnil \trbrdrr\brdrnil \tapadt150 \trpadl150 \tapadb150 \trpadr150 
-\clvertalc \clcbpat11 \clwWidth4290\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl120 \clpadb20 \clpadr20 \gaph\cellx2880
-\clvertalc \clcbpat11 \clwWidth2221\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl120 \clpadb20 \clpadr20 \gaph\cellx5760
-\clvertalc \clcbpat11 \clwWidth1929\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl120 \clpadb20 \clpadr20 \gaph\cellx8640
-\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
+Iki ve ikiden fazla kategorik datasetini karsilastirmak icin chi kare testi kullanılır.
+1.,2. Ve 3. Sinif çocuklarına 2 oyuncaktan hangisini beğendikleri soruluyor. oyuncak tercihi sınıflara gore değişiyor mu? Cevaplara gore asagidaki tablo oluşturuluyor
 
-\f1\fs28 \cf10 \cell 
-\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
-\cf10 \cb6 Numerical\cb1 \cell 
-\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
-\cf10 \cb6 Categorical\cb1 \cell \row
+# Contingency table
+#        toy-1 |  toy-2
+# ----+------------------+------------
+# 1st gr | 30       |  10
+# 2nd gr | 35       |  5
+# 3rd gr | 28       |  12
 
-\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil \tapadt150 \trpadl150 \tapadb150 \trpadr150 
-\clvertalc \clcbpat6 \clwWidth4290\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl120 \clpadb20 \clpadr20 \gaph\cellx2880
-\clvertalc \clcbpat6 \clwWidth2221\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl120 \clpadb20 \clpadr20 \gaph\cellx5760
-\clvertalc \clcbpat6 \clwWidth1929\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl120 \clpadb20 \clpadr20 \gaph\cellx8640
-\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
-\cf10 \cb6 Sample vs. Known Quantity\cb1 \cell 
-\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
-\cf10 \cb6 1 Sample T-Test\cb1 \cell 
-\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
-\cf10 \cb6 Binomial Test\cb1 \cell \row
 
-\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrr\brdrnil \tapadt150 \trpadl150 \tapadb150 \trpadr150 
-\clvertalc \clcbpat11 \clwWidth4290\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl120 \clpadb20 \clpadr20 \gaph\cellx2880
-\clvertalc \clcbpat11 \clwWidth2221\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl120 \clpadb20 \clpadr20 \gaph\cellx5760
-\clvertalc \clcbpat11 \clwWidth1929\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl120 \clpadb20 \clpadr20 \gaph\cellx8640
-\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
-\cf10 \cb6 2 Samples\cb1 \cell 
-\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
-\cf10 \cb6 2 Sample T-Test\cb1 \cell 
-\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
-\cf10 \cb6 Chi Square\cb1 \cell \row
+ho: datasetleri arasında significant bir fark yok
+h1: significant fark var
 
-\itap1\trowd \taflags1 \trgaph108\trleft-108 \trbrdrl\brdrnil \trbrdrt\brdrnil \trbrdrr\brdrnil \tapadt150 \trpadl150 \tapadb150 \trpadr150 
-\clvertalc \clcbpat6 \clwWidth4290\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl120 \clpadb20 \clpadr20 \gaph\cellx2880
-\clvertalc \clcbpat6 \clwWidth2221\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl120 \clpadb20 \clpadr20 \gaph\cellx5760
-\clvertalc \clcbpat6 \clwWidth1929\clftsWidth3 \clbrdrt\brdrnil \clbrdrl\brdrnil \clbrdrb\brdrnil \clbrdrr\brdrnil \clpadt20 \clpadl120 \clpadb20 \clpadr20 \gaph\cellx8640
-\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
-\cf10 \cb6 More Than 2 Samples\cb1 \cell 
-\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
-\cf10 \cb6 ANOVA\cb1 \
-\cb6 and/or\cb1 \
-\cb6 Tukey\cb1 \cell 
-\pard\intbl\itap1\pardeftab720\sl280\partightenfactor0
-\cf10 \cb6 Chi Square\cb1 \cell \lastrow\row
-\pard\pardeftab720\sl560\partightenfactor0
+Kutuphane: from scipy.stats import chi2_contingency
 
-\f4\fs35\fsmilli17600 \cf13 \cb6 \strokec13 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+Test:  
 
-\f0\fs24 \cf0 \cb1 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 \
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-}
+X = [[30, 10],
+     [35, 5],
+     [28, 12]]
+chi2, pval, dof, expected = chi2_contingency(X)
+print pval
+
+
+Yorum: p value 0.05 den kucukse ho reddedilir datasetleri arasında significant bir fark var.
+
+
+
+
+Numerical
+Categorical
+Sample vs. Known Quantity
+1 Sample T-Test
+Binomial Test
+2 Samples
+2 Sample T-Test
+Chi Square
+More Than 2 Samples
+ANOVA
+and/or
+Tukey
+Chi Square
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
