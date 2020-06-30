@@ -1,343 +1,119 @@
-{\rtf1\ansi\ansicpg1252\cocoartf2511
-\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fnil\fcharset0 HelveticaNeue-Bold;\f2\fnil\fcharset0 HelveticaNeue;
-\f3\fnil\fcharset0 Monaco;\f4\froman\fcharset0 Times-Roman;\f5\fnil\fcharset0 HelveticaNeue-Italic;
-}
-{\colortbl;\red255\green255\blue255;\red19\green19\blue20;\red255\green255\blue255;\red56\green56\blue56;
-\red17\green16\blue23;\red229\green227\blue232;\red164\green191\blue255;\red23\green23\blue23;\red252\green115\blue96;
-\red117\green255\blue242;}
-{\*\expandedcolortbl;;\cssrgb\c9804\c9804\c10196;\cssrgb\c100000\c100000\c100000;\cssrgb\c28235\c28235\c28235;
-\cssrgb\c8235\c7843\c12157;\cssrgb\c91765\c91373\c92941;\cssrgb\c70196\c80000\c100000;\cssrgb\c11765\c11765\c11765;\cssrgb\c100000\c53725\c45098;
-\cssrgb\c51373\c100000\c96078;}
-{\*\listtable{\list\listtemplateid1\listhybrid{\listlevel\levelnfc23\levelnfcn23\leveljc0\leveljcn0\levelfollow0\levelstartat1\levelspace360\levelindent0{\*\levelmarker \{none\}}{\leveltext\leveltemplateid1\'00;}{\levelnumbers;}\fi-360\li720\lin720 }{\listname ;}\listid1}}
-{\*\listoverridetable{\listoverride\listid1\listoverridecount0\ls1}}
-\paperw11900\paperh16840\margl1440\margr1440\vieww28600\viewh18000\viewkind0
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+— A/B Testing at Nosh Mish Mosh
+The Nosh Mish Mosh is a recipe and ingredient meal delivery service. We ship the raw materials and you get to cook it at your home! We’ve decided to hire a data analyst to help them make product and interface decisions. Get started and we’ll be able to judge the amount of data we’ll need for these differences to be meaningful.
+If you get stuck during this project or would like to see an experienced developer work through it, click “Get Help“ to see a project walkthrough video.
 
-\f0\fs28 \cf0 \'97 
-\f1\b\fs39 \cf2 \cb3 \expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec2 A/B Testing at Nosh Mish Mosh\
-\pard\pardeftab720\sl420\sa240\partightenfactor0
+1.
+We’ve collected customer data for the past week and exposed it through a Python library, so first import noshmishmosh.
 
-\f2\b0\fs26\fsmilli13200 \cf4 \strokec4 The Nosh Mish Mosh is a recipe and ingredient meal delivery service. We ship the raw materials and you get to cook it at your home! We\'92ve decided to hire a data analyst to help them make product and interface decisions. Get started and we\'92ll be able to judge the amount of data we\'92ll need for these differences to be meaningful.\cb1 \
-\pard\pardeftab720\sl420\partightenfactor0
-\cf4 \cb3 If you get stuck during this project or would like to see an experienced developer work through it, click \'93
-\f1\b Get Help
-\f2\b0 \'93 to see a\'a0
-\f1\b project walkthrough video
-\f2\b0 .\
-\cb1 \
-\pard\pardeftab720\sl300\partightenfactor0
+2.
+Next, we’ll need to do a little bit of data analysis — let’s use numpy to help. Import numpy into your workspace.
 
-\f1\b\fs24 \cf4 \cb3 1.
-\f2\b0 \
-\pard\pardeftab720\sl420\partightenfactor0
+3.
+Nosh Mish Mosh wants to run an experiment to see if we can convince more people to purchase meal plans if we use a more artisanal-looking vegetable selection. We’ve photographed these modern meals with blush tomatoes and graffiti eggplants, but aren’t sure if this strategy will sell enough units to benefit from establishing a business relationship with a new provider.
+Before running this experiment, of course, we need to know how many people have to see the new assets. We don’t want customers seeing food that we won’t end up offering. Of course, there are three things we need to know before we determine that number.
+		the Baseline
+		the Minimum Detectable Effect
+		and the Statistical Significance
 
-\fs26\fsmilli13200 \cf4 We\'92ve collected customer data for the past week and exposed it through a Python library, so first import\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 noshmishmosh
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 .\cb1 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+4.
+Let’s get the ball rolling on finding those numbers! In order to get our baseline, we need to first know how many users visited the site. Let’s grab that logged information, which is stored in noshmishmosh.customer_visits. Assign that to a new variable called all_visitors.
 
-\f4\fs28\fsmilli14080 \cf3 \strokec3 \
-\pard\pardeftab720\sl300\partightenfactor0
+5.
+Next we need to know how many visitors to the site ultimately end up buying a meal or set of meals from Nosh Mish Mosh. We have that information saved into purchasing_customers field on noshmishmosh. Save that information into a variable called paying_visitors.
 
-\f1\b\fs24 \cf4 \cb3 \strokec4 2.
-\f2\b0 \
-\pard\pardeftab720\sl420\partightenfactor0
+6.
+Calculate the lengths of the two lists, saving the results into variables called total_visitor_count and paying_visitor_count, respectively.
 
-\fs26\fsmilli13200 \cf4 Next, we\'92ll need to do a little bit of data analysis \'97 let\'92s use\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 numpy
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 \'a0to help. Import\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 numpy
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 \'a0into your workspace.\cb1 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+7.
+Now to get the baseline: since we want a percentage as our answer, multiply the number of purchasing visitors by 100.0. Then divide that by the number of total visitors. Save the result in a variable called baseline_percent.
 
-\f4\fs28\fsmilli14080 \cf3 \strokec3 \
-\pard\pardeftab720\sl300\partightenfactor0
+8.
+Print out the baseline_percent so we know what to use for our baseline percentage in the A/B Sample Size Calculator.
 
-\f1\b\fs24 \cf4 \cb3 \strokec4 3.
-\f2\b0 \
-\pard\pardeftab720\sl420\sa240\partightenfactor0
+9.
+These rainbow fingerling potatoes don’t come cheap. We’d like to know for sure that we’ll be pulling in at least $1240 more every week. In order to figure out how many more customers we need we’ll have to investigate the average revenue generated from a given sale. Luckily we have a list of the money spent by each customer in noshmishmosh.money_spent. Save that list into a variable called payment_history.
 
-\fs26\fsmilli13200 \cf4 Nosh Mish Mosh wants to run an experiment to see if we can convince more people to purchase meal plans if we use a more artisanal-looking vegetable selection. We\'92ve photographed these modern meals with blush tomatoes and graffiti eggplants, but aren\'92t sure if this strategy will sell enough units to benefit from establishing a business relationship with a new provider.\cb1 \
-\cb3 Before running this experiment, of course, we need to know how many people have to see the new assets. We don\'92t want customers seeing food that we won\'92t end up offering. Of course, there are three things we need to know before we determine that number.\cb1 \
-\pard\tx220\tx720\pardeftab720\li720\fi-720\sl420\sa120\partightenfactor0
-\ls1\ilvl0\cf4 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 		\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec4 the\'a0
-\f1\b Baseline
-\f2\b0 \cb1 \
-\ls1\ilvl0\cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 		\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec4 the\'a0
-\f1\b Minimum Detectable Effect
-\f2\b0 \cb1 \
-\pard\tx220\tx720\pardeftab720\li720\fi-720\sl420\sa240\partightenfactor0
-\ls1\ilvl0\cf4 \cb3 \kerning1\expnd0\expndtw0 \outl0\strokewidth0 		\expnd0\expndtw0\kerning0
-\outl0\strokewidth0 \strokec4 and the\'a0
-\f1\b Statistical Significance
-\f2\b0 \cb1 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+10.
+We need to find how many typical purchases it would take to reach $1240 in additional revenue using our historical data.
+Let’s start with computing the average payment per paying customer using np.mean, saving it as average_payment.
 
-\f4\fs28\fsmilli14080 \cf3 \strokec3 \
-\pard\pardeftab720\sl300\partightenfactor0
+11.
+We want to know how many of these “usual” payments it would take to clear our $1240 mark. Round the number up using np.ceil (because that’s how many new customers it takes to bring in more than $1240). Save that value into a new_customers_needed variable.
 
-\f1\b\fs24 \cf4 \cb3 \strokec4 4.
-\f2\b0 \
-\pard\pardeftab720\sl420\partightenfactor0
+12.
+Now find the percent lift required by multiplying the number of customers by 100.0 and dividing the result by the total visitor count ascertained earlier. Save the result in a variable called percentage_point_increase. Print percentage_point_increase to see what it is.
 
-\fs26\fsmilli13200 \cf4 Let\'92s get the ball rolling on finding those numbers! In order to get our baseline, we need to first know how many users visited the site. Let\'92s grab that logged information, which is stored in\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 noshmishmosh.customer_visits
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 . Assign that to a new variable called\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 all_visitors
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 .\cb1 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+13.
+In order to find our minimum detectable effect, we need to express percentage_point_increase as a percent of baseline_percent. You can do this by dividing percentage_point_increase by baseline_percent and multiplying by 100.0.
+Store the results in a variable called minimum_detectable_effect.
 
-\f4\fs28\fsmilli14080 \cf3 \strokec3 \
-\pard\pardeftab720\sl300\partightenfactor0
+14.
+Print out the result minimum_detectable_effect.
 
-\f1\b\fs24 \cf4 \cb3 \strokec4 5.
-\f2\b0 \
-\pard\pardeftab720\sl420\partightenfactor0
+15.
+The last thing we need to calculate the sample size for Nosh Mish Mosh’s artisanal rebranding is our statistical significance. We’d like to be fairly certain, but this isn’t going to be a million dollar decision, so let’s go with 90%.
 
-\fs26\fsmilli13200 \cf4 Next we need to know how many visitors to the site ultimately end up buying a meal or set of meals from Nosh Mish Mosh. We have that information saved into\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 purchasing_customers
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 \'a0field on\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 noshmishmosh
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 . Save that information into a variable called\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 paying_visitors
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 .\cb1 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+16.
+Now put it all together! Puch the baseline, the minimum detectable effect, and the statistical significance into the calculator and evaluate how many people need to be shown the new assets before we can check if the results are a significant improvement. Save the results in a variable called ab_sample_size.
 
-\f4\fs28\fsmilli14080 \cf3 \strokec3 \
-\pard\pardeftab720\sl300\partightenfactor0
 
-\f1\b\fs24 \cf4 \cb3 \strokec4 6.
-\f2\b0 \
-\pard\pardeftab720\sl420\partightenfactor0
+import noshmishmosh
+import numpy as np
 
-\fs26\fsmilli13200 \cf4 Calculate the lengths of the two lists, saving the results into variables called\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 total_visitor_count
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 \'a0and\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 paying_visitor_count
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 , respectively.\cb1 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+all_visitors= noshmishmosh.customer_visits
 
-\f4\fs28\fsmilli14080 \cf3 \strokec3 \
-\pard\pardeftab720\sl300\partightenfactor0
+paying_visitors=noshmishmosh.purchasing_customers
 
-\f1\b\fs24 \cf4 \cb3 \strokec4 7.
-\f2\b0 \
-\pard\pardeftab720\sl420\partightenfactor0
+total_visitor_count=len(all_visitors)
+paying_visitor_count=len(paying_visitors)
 
-\fs26\fsmilli13200 \cf4 Now to get the baseline: since we want a percentage as our answer, multiply the number of purchasing visitors by\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 100.0
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 . Then divide that by the number of total visitors. Save the result in a variable called\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 baseline_percent
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 .\cb1 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+baseline_percent=100*paying_visitor_count/total_visitor_count
 
-\f4\fs28\fsmilli14080 \cf3 \strokec3 \
-\pard\pardeftab720\sl300\partightenfactor0
+print(baseline_percent)
 
-\f1\b\fs24 \cf4 \cb3 \strokec4 8.
-\f2\b0 \
-\pard\pardeftab720\sl420\partightenfactor0
+payment_history= noshmishmosh.money_spent
+average_payment=np.mean(payment_history)
+print(average_payment)
 
-\fs26\fsmilli13200 \cf4 Print out the\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 baseline_percent
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 \'a0so we know what to use for our baseline percentage in the A/B Sample Size Calculator.\cb1 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+new_customers_needed=np.ceil(1240/average_payment)
+print(new_customers_needed)
 
-\f4\fs28\fsmilli14080 \cf3 \strokec3 \
-\pard\pardeftab720\sl300\partightenfactor0
+percentage_point_increase=100*new_customers_needed/ total_visitor_count
+print(percentage_point_increase)
 
-\f1\b\fs24 \cf4 \cb3 \strokec4 9.
-\f2\b0 \
-\pard\pardeftab720\sl420\partightenfactor0
+minimum_detectable_effect=100*percentage_point_increase/baseline_percent
+print(minimum_detectable_effect)
 
-\fs26\fsmilli13200 \cf4 These rainbow fingerling potatoes don\'92t come cheap. We\'92d like to know for sure that we\'92ll be pulling in at least $1240 more every week. In order to figure out how many more customers we need we\'92ll have to investigate the average revenue generated from a given sale. Luckily we have a list of the money spent by each customer in\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 noshmishmosh.money_spent
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 . Save that list into a variable called\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 payment_history
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 .\cb1 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
+ab_sample_size= 290
 
-\f4\fs28\fsmilli14080 \cf3 \strokec3 \
-\pard\pardeftab720\sl300\partightenfactor0
 
-\f1\b\fs24 \cf4 \cb3 \strokec4 10.
-\f2\b0 \
-\pard\pardeftab720\sl420\sa240\partightenfactor0
 
-\fs26\fsmilli13200 \cf4 We need to find how many typical purchases it would take to reach $1240 in additional revenue using our historical data.\cb1 \
-\pard\pardeftab720\sl420\partightenfactor0
-\cf4 \cb3 Let\'92s start with computing the average payment per paying customer using\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 np.mean
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 , saving it as\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 average_payment
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 .\cb1 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\f4\fs28\fsmilli14080 \cf3 \strokec3 \
-\pard\pardeftab720\sl300\partightenfactor0
 
-\f1\b\fs24 \cf4 \cb3 \strokec4 11.
-\f2\b0 \
-\pard\pardeftab720\sl420\partightenfactor0
 
-\fs26\fsmilli13200 \cf4 We want to know how many of these \'93usual\'94 payments it would take to clear our\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 $1240
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 \'a0mark. Round the number up using\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 np.ceil
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 \'a0(because that\'92s how many new customers it takes to bring in more than\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 $1240
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 ). Save that value into a\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 new_customers_needed
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 \'a0variable.\cb1 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\f4\fs28\fsmilli14080 \cf3 \strokec3 \
-\pard\pardeftab720\sl300\partightenfactor0
 
-\f1\b\fs24 \cf4 \cb3 \strokec4 12.
-\f2\b0 \
-\pard\pardeftab720\sl420\partightenfactor0
 
-\fs26\fsmilli13200 \cf4 Now find the percent lift required by multiplying the number of customers by\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 100.0
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 \'a0and dividing the result by the total visitor count ascertained earlier. Save the result in a variable called\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 percentage_point_increase
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 . Print\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 percentage_point_increase
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 \'a0to see what it is.\cb1 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\f4\fs28\fsmilli14080 \cf3 \strokec3 \
-\pard\pardeftab720\sl300\partightenfactor0
 
-\f1\b\fs24 \cf4 \cb3 \strokec4 13.
-\f2\b0 \
-\pard\pardeftab720\sl420\sa240\partightenfactor0
 
-\fs26\fsmilli13200 \cf4 In order to find our minimum detectable effect, we need to express\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 percentage_point_increase
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 \'a0as a percent of\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 baseline_percent
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 . You can do this by dividing\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 percentage_point_increase
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 \'a0by\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 baseline_percent
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 \'a0and multiplying by\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 100.0
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 .\cb1 \
-\pard\pardeftab720\sl420\partightenfactor0
-\cf4 \cb3 Store the results in a variable called\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 minimum_detectable_effect
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 .\cb1 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\f4\fs28\fsmilli14080 \cf3 \strokec3 \
-\pard\pardeftab720\sl300\partightenfactor0
 
-\f1\b\fs24 \cf4 \cb3 \strokec4 14.
-\f2\b0 \
-\pard\pardeftab720\sl420\partightenfactor0
 
-\fs26\fsmilli13200 \cf4 Print out the result\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 minimum_detectable_effect
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 .\cb1 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\f4\fs28\fsmilli14080 \cf3 \strokec3 \
-\pard\pardeftab720\sl300\partightenfactor0
 
-\f1\b\fs24 \cf4 \cb3 \strokec4 15.
-\f2\b0 \
-\pard\pardeftab720\sl420\partightenfactor0
 
-\fs26\fsmilli13200 \cf4 The last thing we need to calculate the sample size for Nosh Mish Mosh\'92s artisanal rebranding is our statistical significance. We\'92d like to be fairly certain, but this isn\'92t going to be a million dollar decision, so let\'92s go with\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 90%
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 .\cb1 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\f4\fs28\fsmilli14080 \cf3 \strokec3 \
-\pard\pardeftab720\sl300\partightenfactor0
 
-\f1\b\fs24 \cf4 \cb3 \strokec4 16.
-\f2\b0 \
-\pard\pardeftab720\sl420\partightenfactor0
 
-\fs26\fsmilli13200 \cf4 Now put it all together! Puch the\'a0
-\f5\i baseline
-\f2\i0 , the\'a0
-\f5\i minimum detectable effect
-\f2\i0 , and the\'a0
-\f5\i statistical significance
-\f2\i0 \'a0into the calculator and evaluate how many people need to be shown the new assets before we can check if the results are a significant improvement. Save the results in a variable called\'a0
-\f3\fs21\fsmilli10800 \cf5 \cb6 \strokec5 ab_sample_size
-\f2\fs26\fsmilli13200 \cf4 \cb3 \strokec4 .\cb1 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
 
-\f4\fs28\fsmilli14080 \cf3 \strokec3 \
-\
-\pard\pardeftab720\sl440\partightenfactor0
-\cf7 \cb8 \strokec7 import\cf3 \strokec3  \cf9 \strokec9 noshmishmosh\cf3 \cb1 \strokec3 \
-\cf7 \cb8 \strokec7 import\cf3 \strokec3  \cf9 \strokec9 numpy\cf3 \strokec3  \cf7 \strokec7 as\cf3 \strokec3  \cf9 \strokec9 np\cf3 \cb1 \strokec3 \
-\
-\cf9 \cb8 \strokec9 all_visitors\cf3 \strokec3 = \cf9 \strokec9 noshmishmosh\cf3 \strokec3 .\cf10 \strokec10 customer_visits\cf3 \cb1 \strokec3 \
-\
-\cf9 \cb8 \strokec9 paying_visitors\cf3 \strokec3 =\cf9 \strokec9 noshmishmosh\cf3 \strokec3 .\cf10 \strokec10 purchasing_customers\cf3 \cb1 \strokec3 \
-\
-\cf9 \cb8 \strokec9 total_visitor_count\cf3 \strokec3 =len(\cf9 \strokec9 all_visitors\cf3 \strokec3 )\cb1 \
-\cf9 \cb8 \strokec9 paying_visitor_count\cf3 \strokec3 =len(\cf9 \strokec9 paying_visitors\cf3 \strokec3 )\cb1 \
-\
-\cf9 \cb8 \strokec9 baseline_percent\cf3 \strokec3 =\cf9 \strokec9 100\cf3 \strokec3 *\cf9 \strokec9 paying_visitor_count\cf3 \strokec3 /\cf9 \strokec9 total_visitor_count\cf3 \cb1 \strokec3 \
-\
-\cb8 print(\cf9 \strokec9 baseline_percent\cf3 \strokec3 )\cb1 \
-\
-\cf9 \cb8 \strokec9 payment_history\cf3 \strokec3 = \cf9 \strokec9 noshmishmosh\cf3 \strokec3 .\cf10 \strokec10 money_spent\cf3 \cb1 \strokec3 \
-\cf9 \cb8 \strokec9 average_payment\cf3 \strokec3 =\cf9 \strokec9 np\cf3 \strokec3 .\cf10 \strokec10 mean\cf3 \strokec3 (\cf9 \strokec9 payment_history\cf3 \strokec3 )\cb1 \
-\cb8 print(\cf9 \strokec9 average_payment\cf3 \strokec3 )\cb1 \
-\
-\cf9 \cb8 \strokec9 new_customers_needed\cf3 \strokec3 =\cf9 \strokec9 np\cf3 \strokec3 .\cf10 \strokec10 ceil\cf3 \strokec3 (\cf9 \strokec9 1240\cf3 \strokec3 /\cf9 \strokec9 average_payment\cf3 \strokec3 )\cb1 \
-\cb8 print(\cf9 \strokec9 new_customers_needed\cf3 \strokec3 )\cb1 \
-\
-\cf9 \cb8 \strokec9 percentage_point_increase\cf3 \strokec3 =\cf9 \strokec9 100\cf3 \strokec3 *\cf9 \strokec9 new_customers_needed\cf3 \strokec3 / \cf9 \strokec9 total_visitor_count\cf3 \cb1 \strokec3 \
-\cb8 print(\cf9 \strokec9 percentage_point_increase\cf3 \strokec3 )\cb1 \
-\
-\cf9 \cb8 \strokec9 minimum_detectable_effect\cf3 \strokec3 =\cf9 \strokec9 100\cf3 \strokec3 *\cf9 \strokec9 percentage_point_increase\cf3 \strokec3 /\cf9 \strokec9 baseline_percent\cf3 \cb1 \strokec3 \
-\cb8 print(\cf9 \strokec9 minimum_detectable_effect\cf3 \strokec3 )\cb1 \
-\
-\cf9 \cb8 \strokec9 ab_sample_size\cf3 \strokec3 = \cf9 \strokec9 290\cf3 \cb1 \strokec3 \
-\pard\tx566\tx1133\tx1700\tx2267\tx2834\tx3401\tx3968\tx4535\tx5102\tx5669\tx6236\tx6803\pardirnatural\partightenfactor0
-\cf3 \
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\
-\pard\pardeftab720\sl440\partightenfactor0
-\cf3 \
-\'97}
+
+
+
+
+
+
+
+
+
+—
